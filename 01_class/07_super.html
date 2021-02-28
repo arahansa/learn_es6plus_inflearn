@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Book{
+     getTitle(){
+      console.log("슈퍼")
+     }
+    }
+    class Point extends Book{
+     getTitle() {
+      super.getTitle();
+      console.log("서브")
+     }
+    }
+</script>
+</body>
+</html>

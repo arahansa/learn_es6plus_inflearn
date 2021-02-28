@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+hi
+<script>
+    try{
+     const obj = Point;
+    }catch{
+     console.log("호이스팅 불가");
+    }
+
+    class Point{
+     static getPoint(){
+      return 100;
+     }
+    }
+    console.log(Point.getPoint());
+</script>
+</body>
+</html>

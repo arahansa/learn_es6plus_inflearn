@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+클래스의 제네레이터 함수는 prototype 에 연결됩니다.
+인스턴스로 호출해야 합니다.
+<script>
+    class Point{
+     *getPoint(){
+      yield 10;
+      yield 20;
+     }
+    }
+    const gen = new Point();
+    const obj = gen.getPoint();
+
+    console.log(obj.next());
+    console.log(obj.next());
+    console.log(obj.next());
+</script>
+</body>
+</html>

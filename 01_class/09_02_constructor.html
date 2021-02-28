@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Point{
+     constructor() {
+      console.log(this.constructor.get())
+     }
+
+     static get(){
+      return 100;
+     }
+    }
+
+    /**
+     * this.constructor.get 에서 constructor 가 Point 클래스를 참조하므로
+     * static 메소드를 호출할 수 있습니다.
+     */
+    new Point();
+</script>
+</body>
+</html>

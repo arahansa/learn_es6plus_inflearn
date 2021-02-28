@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Book{
+     constructor(title) {
+      this.title = title;
+     }
+    }
+    class Point extends Book{
+     constructor(title, point) {
+      super(title);
+      this.point = point;
+     }
+    }
+    const obj = new Point("책", 100);
+    console.log("타이틀 :", obj.title, obj.point);
+</script>
+</body>
+</html>

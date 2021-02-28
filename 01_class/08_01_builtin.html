@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   class Point extends Array{
+
+    constructor() {
+     super();
+    }
+
+    getTotal() {
+     let total = 0;
+     for (const value of this) {
+      total += value;
+     }
+     return total;
+    }
+
+   }
+   const obj = new Point();
+   obj.push(10, 20, 30);
+   console.log(obj.getTotal())
+</script>
+</body>
+</html>

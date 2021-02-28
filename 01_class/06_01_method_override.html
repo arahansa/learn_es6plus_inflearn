@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+상속 예제
+
+<script>
+    class Book{
+      constructor(title) {
+       this.title = title
+      }
+      getTitle(){
+       return this.title;
+      }
+    }
+    /*
+    1. Book 클래스에 getTitle() 을 작성
+    */
+    class Point extends Book{
+     getTitle() {
+      return "서브클래스";
+     }
+    }
+
+    /**
+     * 1. 오버라이드 설명을 위해
+     * - Point 클래스에도 getTitle() 을 작성했습니다.
+     *
+     * 2. getTitle() 이 양쪽 클래스에 있습니다.
+     */
+
+    debugger;
+
+    const obj = new Point("책");
+    /*
+       1. obj.__proto__ 를 펼치면 getTitle() 이 있으며 이것은 서브클래스의 메소드입니다.
+
+       2. obj.__proto__.__proto__  를 펼치면 getTitle() 이 있으며 이것은 슈퍼클래스의 메소드입니다.
+     */
+    debugger;
+    console.log(obj.getTitle());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+상속 예제
+
+<script>
+    class Book{
+      constructor(title) {
+       this.title = title
+      }
+      getTitle(){
+       return this.title;
+      }
+    }
+    /*
+    1. 엔진이 Book.prototype.getTitle() 형태로 만듭니다.
+    */
+
+    /**
+     * 1. Book
+     * setPoint() 는 Point 클래스의 메소드이며
+     * Point.prototype 에 연결됩니다.
+     *
+     * 2. 엔진이 extends 키워드를 만나면 Point 클래스에서 Book 클래스를 상속받아 서브와 슈퍼구조를 만듭니다.
+     *
+     * 3. Point.prototype.__proto__를 펼치면 getTitle() 이 있으며 Book.prototype 에 연결된 메소드입니다.
+     *
+     * 4. prototype.__proto__ 에
+     * - 상속해주는 클래스의 prototype에 연결된 메소드를 구조적, 계층적으로 만듭니다.
+     * - 이것이 상속입니다.
+     */
+
+    class Point extends Book{
+     setPoint(point){
+      this.point = point;
+     }
+    }
+
+    const obj = new Point("책");
+    debugger;
+    /*
+    1. obj 를 펼치면 {title:"책"} 이 있으며 이것은 인스턴스 프로퍼티입니다.
+
+    2. 이런 방법으로 인스턴스마다 고유의 프로퍼티 값을 가질 수 있습니다
+
+    3. 고유의 값을 갖는 것이 인스턴스 가장 큰 목적입니다.
+
+    4. 상속이 클래스의 가장 큰 목적이 아닙니다. 상속은 인스턴스 프로퍼티를 지원하기 위한 수단.
+
+
+    5. obj.__proto__ 를 펼치면 setPoint() 가 있으며 이것은 서브 클래스의 메소드입니다.
+    6. obj.__proto__.__proto__ 를 펼치면  getTitle() 가 있으며 이것은 슈퍼 클래스의 메소드입니다.
+     */
+    debugger;
+    /*
+     7. 이처럼 __proto__를 이용하여
+     - 슈퍼 클래스의 prototype 에 연결된 메소드를 구조적 계층적으로 연결합니다.
+     - 이것이 상속구조
+
+     8. 인스턴스의 메소드를 호출하면
+     - __proto__ 구조를 따라 아래로 내려 가면서 메소드를 식별
+     - 식별하는 위치에 메소드가 있으면 실행
+     */
+
+    console.log(obj.getTitle())
+</script>
+</body>
+</html>
