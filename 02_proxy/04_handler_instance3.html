@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="target"></div>
+<script>
+    "use strict";
+    debugger;
+
+    const target = {point: 100};
+    const handler = {
+     get(target, key){
+      return target[key]+ 200;
+     }
+    };
+    const obj = new Proxy(target, handler);
+    /**
+     * 1. obj 를 펼치면 [[Handler]] 가 있으며, 이것은 핸들러를 뜻합니다.
+     * 2. [[Handler]] 를 펼치면 get() 이 있으며
+     * 이것은 handler 오브젝트에 작성한 트랩입니다.
+     *
+     * 3. [[Handler]].__proto__ 를 펼치면 get,set 이 있습니다.
+     * 이것이 [[Get]], [[Set]] 입니다.
+     *
+     * 4. get() 트랩 아래에 __proto__ 가 있고 거기에 [[Get]] 이 있으므로 get() 트랩이 실행됩니다.
+     */
+    debugger;
+
+    /**
+     * 5. [[Target]] 을 펼치면 {point:100} 이 표시되며
+     * - 이것은 target 오브젝트입니다.
+     *
+     * 6. [[Target]].__proto__ 을 펼치면 get, set 이 있습니다.
+     * 이것이 [[Get]], [[Set]] 입니다.
+     */
+    debugger;
+    console.log(obj.point);
+    document.getElementById("target").textContent =obj.point;
+    /**
+     * 1. obj.point 는 getter 입니다.
+     *
+     * 2. obj.proxy 인스턴스에서 point 프로퍼티 값을 구합니다.
+     * - 핸들러에 get() 트랩을 작성했으므로 get() 트랩이 호출됩니다.
+     *
+     * 3. target 에서 point 프로퍼티값을 구하고 200을 더해 반환합니다.
+     *
+     * 4. get() 트랩의 자세한 처리는 Proxy trap 에서 다룹니다.
+     */
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target = {point: 600};
+    const handler = {
+     has(target, key){
+      return target[key];
+     }
+    };
+    const obj = new Proxy(target, handler);
+    console.log("point" in obj);
+    console.log("book" in obj);
+
+
+</script>
+</body>
+</html>

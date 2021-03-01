@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target = {point: 600, bonus: 100};
+    const handler = {
+     get(target, key, value, receiver){
+      return target[key] + 200;
+     }
+    }
+
+    const proxy = new Proxy(target, handler);
+    const obj = Object.create(proxy, {
+     point: {value: 500}
+    });
+    console.log(obj.point);
+    console.log(obj.bonus);
+
+
+</script>
+</body>
+</html>

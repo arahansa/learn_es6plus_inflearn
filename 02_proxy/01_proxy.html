@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target = {order:"커피"};
+    const value = target.order;
+    console.log(value);
+
+    /**
+     * 1. getter 를 스펙에서 [[Get]] 으로 표기
+     *
+     * 2. const value = target.order;
+     * targert.order 를 실행하면
+     * target 오브젝트의 __proto__ 에 있는
+     * [[Get]] 을 호출한다.
+     *
+     * 3. [[Get]] 을 호출하면서
+     * 파라미터 값으로 "order" 를 넘겨준다.
+     *
+     * 4. [[Get]] 메소드가 order 프로퍼티 키로 하여 프로퍼티 값을 구해 반환한다.
+     *
+     * 5. 이것이 기본 오퍼레이션
+     */
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="target"></div>
+<script>
+ "use strict";
+ debugger;
+ const target = {};
+ const handler = {
+  set(target, key, value, receiver){
+   target[key] = value + 200;
+   return true;
+  }
+ }
+ const proxy = new Proxy(target, handler);
+ const obj = Object.create(proxy, {
+  point: {value: 100, writable: true}
+ });
+ obj.point = 700;
+
+ document.getElementById("target").textContent = "obj point : "+ obj.point;
+ document.getElementById("target").textContent += "\n target point : "+ target.point;
+
+</script>
+</body>
+</html>

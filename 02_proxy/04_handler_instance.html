@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="target"></div>
+<script>
+    const target = ["A", "B"];
+
+    const handler = {
+     get(target, key){
+      return target[key] +", 첫번째";
+     }
+    }
+    const obj = new Proxy(target, handler);
+    document.getElementById("target").textContent = obj[0];
+
+</script>
+</body>
+</html>

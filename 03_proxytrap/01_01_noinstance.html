@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="target"></div>
+<script>
+ "use strict";
+ debugger;
+ const target = {};
+ const handler = {
+  point: 700,
+  set(target, key, value, receiver){
+   target[key] = value + 200;
+   return true;
+  }
+ }
+ const proxy = new Proxy(target, handler);
+ const obj = Object.create(proxy, {
+  bonus:{value: 500, writable: true}
+ })
+ obj.point = 100;
+ document.getElementById("target").textContent = obj.bonus;
+
+</script>
+</body>
+</html>

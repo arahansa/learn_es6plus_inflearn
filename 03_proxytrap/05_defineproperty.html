@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target = {};
+    const handler = {
+     defineProperty(target, key, desc){
+      if(desc.value > 0){
+       desc.value = desc.value * -1;
+      };
+      Object.defineProperty(target, key, desc);
+      return true;
+     }
+    };
+
+    const proxy = new Proxy(target, handler);
+    Object.defineProperty(proxy, "point", {
+     value: 100, writable: true
+    });
+    console.log(target.point);
+
+
+
+</script>
+</body>
+</html>

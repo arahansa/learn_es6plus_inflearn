@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="target"></div>
+<script>
+    "use strict";
+    debugger;
+
+    const target = {point:100};
+    const handler = {
+     get(target, key){
+      return target[key];
+     }
+    }
+    const obj = Proxy.revocable(target, handler);
+    console.log(obj.proxy.point);
+    document.getElementById("target").textContent = obj.proxy.point;
+
+    obj.revoke();
+    try{
+     obj.proxy.point;
+    }catch{
+     console.log("Proxy 기능 사용불가");
+     document.getElementById("target").innerHTML = document.getElementById("target").textContent + "<br> Proxy 기능 사용불가";
+    }
+
+</script>
+</body>
+</html>

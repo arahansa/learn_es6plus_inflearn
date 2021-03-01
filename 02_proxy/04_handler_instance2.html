@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="target"></div>
+<script>
+    "use strict";
+    debugger;
+
+    const obj = Proxy;
+    /**
+     * 1. Proxy 오브젝트 구조를 살펴보기 위해 obj 에 할당합니다.
+     */
+    debugger;
+
+    /**
+     * 1. Proxy 오브젝트 자체를 obj 에 할당했으므로
+     * - proxytype 과 constructor 에 있어야 하는데 없습니다.
+     *
+     * 2. new 연산자로 인스턴스를 생성하려면 constructor 가 있어야 하는데, 없습니다.
+     * 그런데도 앞에서 new 연산자로 인스턴스를 생성했습니다.
+     * Proxy(target, {}) 형태로 실행하면 에러가 난다고 했습니다.
+     */
+    debugger;
+
+    /**
+     * 3. obj.__proto__를 펼치면 apply(), call() 이 있으며 이것은 Function 오브젝트의 메소드로
+     * - Proxy 에서 정의한 것이 아닙니다.
+     *
+     * 4. 한편 이런 구조는 Proxy 오브젝트가 Function 오브젝트 특성을 갖고 있다는 것을 뜻합니다.
+     */
+    debugger;
+    /**
+     * 5. Proxy 오브젝트는 일반적인 형태가 아닌 특별한 형태의 오브젝트입니다.
+     *
+     * 6. ES6 스펙에 아래와 같이 작성되어져있습니다.
+     * A proxy object is an exotic object.
+     */
+    debugger;
+    /**
+     * 7. eoxtic object 에 대해
+     * ES6+ 기본 과정에서 다루었습니다만, 범용성을 위한 특별한 오브젝트를 말합니다.
+     *
+     * 8. revocable()
+     * - 취소 가능한 오브젝트를 생성하며 뒤에서 다룹니다.
+     * - Proxy 오브젝트에서는 함수 하나만 있습니다.
+     */
+    debugger;
+
+</script>
+</body>
+</html>
