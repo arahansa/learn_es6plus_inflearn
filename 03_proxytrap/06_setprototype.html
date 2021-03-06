@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Book{
+        setTitle(){
+            return "책";
+        }
+    }
+    class Point{
+        getPoint(){
+            return 100;
+        }
+    }
+    Object.setPrototypeOf(Book, Point.prototype);
+    console.log(Book.prototype.getPoint);
+    console.log(Book.__proto__.getPoint);
+    const obj = new Book();
+    console.log(obj.getPoint)
+
+
+</script>
+</body>
+</html>

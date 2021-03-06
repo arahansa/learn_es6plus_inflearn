@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target ={};
+    Object.defineProperty(target, "point", {
+        value: 100, configurable: true
+    });
+    const handler = {
+        getOwnPropertyDescriptor(target, key){
+            const desc = Object.getOwnPropertyDescriptor(target, key);
+            if(desc.configurable){
+                return {value: 300, configurable: true}
+            }
+            return desc;
+        }
+    }
+    const obj = new Proxy(target, handler);
+    console.log(Object.getOwnPropertyDescriptor(obj, "point"));
+</script>
+</body>
+</html>

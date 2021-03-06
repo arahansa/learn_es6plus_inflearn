@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Point{
+        getPoint() {
+            return 100;
+        }
+    }
+
+    const handler = {
+        getPrototypeOf(target){
+            return this.list? Array.prototype : target.prototype;
+        }
+    }
+
+    const obj = new Proxy(Point, handler);
+    handler.list = true;
+    const proto = obj.__proto__;
+    console.log(proto.map);
+
+
+
+</script>
+</body>
+</html>

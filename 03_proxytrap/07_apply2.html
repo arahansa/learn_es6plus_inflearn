@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // TODO : 안됨
+    function getPoint(...values){
+        console.log("this in get point :", this);
+        return values.map((value)=>{
+            console.log("this in value map:", this);
+            console.log("value :", value, ", bonus :", this.bonus);
+            return value + this.bonus;
+        });
+    };
+    const handler = {
+        apply(target, that, params){
+            console.log("target :", target);
+            return target.apply(that, params);
+        }
+    }
+    const obj = new Proxy(getPoint, handler);
+    const add = { bonus: 10 };
+    console.log(obj.apply(add, [100, 200]))
+</script>
+</body>
+</html>

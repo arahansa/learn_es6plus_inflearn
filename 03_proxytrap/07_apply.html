@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getPoint(...values){
+        return values.map((value)=>{
+            return value + 10;
+        });
+    };
+    const handler = {
+        apply(target, that, params){
+            return target.apply(this, params);
+        }
+    }
+    const obj = new Proxy(getPoint, handler);
+    console.log(obj(100, 200))
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target ={};
+    Object.defineProperties(target, {
+        point: {value: 100, enumerable: true},
+        bonus: {value: 200},
+    });
+    const handler = {
+        ownKeys(target) {
+            return Object.getOwnPropertyNames(target);
+        }
+    }
+    const obj = new Proxy(target, handler);
+    console.log(Object.getOwnPropertyNames(obj));
+    // Object.keys 는 enumerable false 는 반환하지 않는다.
+    console.log(Object.keys(obj));
+</script>
+</body>
+</html>

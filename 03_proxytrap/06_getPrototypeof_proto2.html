@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Point{
+        getPoint() {
+            return 100;
+        }
+    }
+
+    const handler = {
+        getPrototypeOf(target){
+            return Point.prototype;
+        }
+    }
+
+   const target = new Point();
+    console.log(target instanceof Point);
+    console.log(Point.prototype instanceof Point);
+
+    const obj = new Proxy(target, handler);
+    console.log(obj instanceof Point);
+
+
+</script>
+</body>
+</html>
