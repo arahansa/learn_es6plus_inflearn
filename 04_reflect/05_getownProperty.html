@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target = {};
+    Object.defineProperty(target, "point", {
+     value: 100, configurable: true
+    });
+
+    const desc = Reflect.getOwnPropertyDescriptor(target, "point");
+    console.log("desc :", desc);
+
+
+</script>
+</body>
+</html>

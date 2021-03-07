@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let proto = Reflect.getPrototypeOf(Array);
+    // Array.__proto__ = Function.prototype
+    console.log(proto === Function.prototype);
+    console.log(proto === Array.prototype);
+    const list = [];
+    proto = Reflect.getPrototypeOf(list);
+    console.log(proto === Array.prototype);
+    // ---
+    proto = Reflect.getPrototypeOf(Array.prototype);
+    console.log(proto.map);
+    console.log(proto.hasOwnProperty)
+
+</script>
+</body>
+</html>

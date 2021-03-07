@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const obj = new Promise(((resolve, reject) => {
+     resolve(100);
+    }));
+    obj.then((value)=>{
+     return value + 50
+    }).then((param)=>{
+     console.log("param  :", param);
+    });
+
+
+</script>
+</body>
+</html>

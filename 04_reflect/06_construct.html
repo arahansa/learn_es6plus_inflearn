@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Point{
+     constructor(one, two) {
+      this.point = one + two;
+     }
+    };
+    const obj = Reflect.construct(Point, [100, 200]);
+    console.log(obj.point);
+</script>
+</body>
+</html>

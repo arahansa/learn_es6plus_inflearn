@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    async function* point(){
+     yield 10;
+     yield 20;
+    }
+
+    async function show(){
+     for await (const value of point()){
+      console.log("value:", value);
+     }
+    }
+    show();
+</script>
+
+</body>
+</html>

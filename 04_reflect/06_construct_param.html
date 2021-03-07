@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Point{
+     constructor(point) {
+      this.point =  point;
+     }
+     getPoint(){
+      return this.point;
+     }
+    };
+    class Book{
+     getTitle(){
+      return "JS:"+this.point;
+     }
+    }
+    const obj = Reflect.construct(Point, [100], Book);
+    console.log(obj.getPoint);
+    console.log(obj.getTitle());
+</script>
+</body>
+</html>

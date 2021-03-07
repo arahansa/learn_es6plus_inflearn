@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function order(delay){
+     return new Promise((resolve => {
+      setTimeout(()=>{
+       console.log("실행자", delay);
+       resolve(delay);
+      })
+     }))
+    }
+
+    Promise.all([order(500), order(300), order(100)]).then(param=>{
+     console.log("then :"+param);
+    })
+</script>
+</body>
+</html>

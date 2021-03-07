@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target = {point: 100};
+    const handler = {
+     get(target, key, receiver){
+      return Reflect.get(target, key, receiver) + 200;
+     }
+    };
+    const obj = new Proxy(target, handler);
+    console.log(obj.point);
+</script>
+</body>
+</html>

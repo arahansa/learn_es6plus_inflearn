@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const target = {
+     point: 100,
+     set setPoint(key){
+      target[key] = this.point + 500
+     }
+    };
+    target.setPoint = "point";
+    console.log(target.point);
+    const that = {point: 300};
+    Reflect.set(target, "setPoint", "point", that);
+    console.log(target.point)
+</script>
+</body>
+</html>
